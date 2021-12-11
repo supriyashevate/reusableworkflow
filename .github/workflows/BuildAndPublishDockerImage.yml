@@ -7,7 +7,7 @@ on:
         required: true
         type: string
       tag: 
-        type: string
+        type: number
     secrets:
       docker_username:
         required: true
