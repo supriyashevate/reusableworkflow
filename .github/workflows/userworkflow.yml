@@ -15,7 +15,7 @@ jobs:
     uses: supriyashevate/reusableworkflow/.github/workflows/BuildAndPublishDockerImage.yml@main
     with:
       image_name: my-awesome-app
-      tag: latest
+      tag: $(Build.BuildNumber)
     secrets:
       docker_username: ${{ secrets.DOCKER_USERNAME }}
       docker_password: ${{ secrets.DOCKER_PASSWORD }}
