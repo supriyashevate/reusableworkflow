@@ -10,5 +10,5 @@ jobs:
       run: echo "Hello from user workflow !!!"
   
   docker:
-    uses: supriyashevate/reusableworkflow/.github/workflows/
+    uses: supriyashevate/reusableworkflow/.github/workflows/BuildAndPublishDockerImage.yml
 
