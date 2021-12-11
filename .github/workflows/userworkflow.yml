@@ -7,8 +7,17 @@ jobs:
   do-job:
     runs-on: ubuntu-latest
     steps:
-      run: echo "Hello from user workflow !!!"
+      - uses: actions/checkout@v2
+      - name: Run a one line script
+        run: echo "Hello from user workflow !!!"
   
   docker:
-    uses: supriyashevate/reusableworkflow/.github/workflows/BuildAndPublishDockerImage.yml
+    uses: supriyashevate/reusableworkflow/.github/workflows/BuildAndPublishDockerImage.yml@main
+    with:
+      image_name: my-awesome-app
+      tag: $GITHUB_RUN_NUMBER
+    secrets:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      
 
