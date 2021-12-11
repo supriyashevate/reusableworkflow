@@ -1,0 +1,14 @@
+name: User workflow 
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  do-job:
+    runs-on: ubuntu-latest
+    steps:
+      run: echo "Hello from user workflow !!!"
+  
+  docker:
+    uses: supriyashevate/reusableworkflow/.github/workflows/
+
