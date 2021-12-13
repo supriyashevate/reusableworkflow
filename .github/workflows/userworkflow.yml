@@ -14,7 +14,7 @@ jobs:
   docker:
     uses: supriyashevate/reusableworkflow/.github/workflows/BuildAndPublishDockerImage.yml@main
     with:
-      image_name: supriyashevate/my-awesome-app
+      image_name: supriyashevate/maven-project
       tag: new
     secrets:
       docker_username: ${{ secrets.DOCKER_USERNAME }}
