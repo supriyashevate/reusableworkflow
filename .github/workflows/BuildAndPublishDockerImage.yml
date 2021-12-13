@@ -28,13 +28,13 @@ jobs:
           password: ${{ secrets.docker_password }}
       
       - name: Build the Docker image
-        run: docker build -t ${{secrets.docker_username}}/${{image_name}}:latest .
+        run: docker build -t ${{image_name}}:latest .
         
       - name: Tag the Docker image
-        run: docker tag ${{secrets.docker_username}}/${{image_name}}:latest ${{secrets.docker_username}}/${{image_name}}:1.0
+        run: docker tag ${{image_name}}:latest ${{secrets.docker_username}}/${{image_name}}:1.0
         
       - name: Push the Docker image to the registry
-        run: docker push ${{secrets.docker_username}}/${{image_name}}:1.0
+        run: docker push ${{image_name}}:1.0
 
   
       
