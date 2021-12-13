@@ -34,7 +34,7 @@ jobs:
           images: ${{secrets.docker_username}}/${{inputs.image_name}}
       
       - name: Build and push Docker image
-        uses: docker/build-push-action@jenkins-maven-pipeline-project-45T
+        uses: docker/build-push-action@jenkins-maven-pipeline-project-41T
         with:
           context: .
           push: true
