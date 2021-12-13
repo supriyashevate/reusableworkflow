@@ -27,14 +27,19 @@ jobs:
           username: ${{ secrets.docker_username }}
           password: ${{ secrets.docker_password }}
       
-      - name: Build the Docker image
-        run: docker build -t ${{image_name}}:latest .
-        
-      - name: Tag the Docker image
-        run: docker tag ${{image_name}}:latest ${{secrets.docker_username}}/${{image_name}}:1.0
-        
-      - name: Push the Docker image to the registry
-        run: docker push ${{image_name}}:1.0
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@jenkins-maven-pipeline-project-41T
+        with:
+          images: ${{secrets.docker_username}}/${{inputs.image_name}}
+      
+      - name: Build and push Docker image
+        uses: docker/build-push-action@jenkins-maven-pipeline-project-45T
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
 
   
       
