@@ -29,12 +29,12 @@ jobs:
       
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@jenkins-maven-pipeline-project-41T
+        uses: docker/metadata-action@jenkins-maven-pipeline-project-41
         with:
           images: ${{secrets.docker_username}}/${{inputs.image_name}}
       
       - name: Build and push Docker image
-        uses: docker/build-push-action@jenkins-maven-pipeline-project-41T
+        uses: docker/build-push-action@jenkins-maven-pipeline-project-41
         with:
           context: .
           push: true
